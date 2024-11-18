@@ -191,9 +191,9 @@ function loadUserPermission(id){
                         $(`input[type='checkbox'][name='system_action[]'][value = '${users['action_id']}']`).prop("checked", true);
                         
                     })
-                }
-            }else{
+                }else{
                 $("input[type='checkbox']").prop("checked", false);
+            }
             }
         },
         error: function(data){

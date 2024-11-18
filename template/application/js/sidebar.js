@@ -1,5 +1,15 @@
 loadUserMenus();
 
+setTimeout(function(){
+    document.querySelectorAll(".nav-item").forEach(item =>{
+        item.addEventListener("click", ()=>{
+            item.classList.toggle("pcoded-trigger");
+            item.querySelector('.pcoded-submenu').classList.toggle('show-menu-now'); 
+        })
+    })
+},2000);
+
+
 function loadUserMenus(){
     let sendingData = {
         'action' : 'get_user_menus'
@@ -31,10 +41,20 @@ function loadUserMenus(){
                         `;
                         category = menu['category_name'];
                     }
+                    menuElement += `
+                    <li class=''><a href="${menu['link']}" current_link="${menu['link']}" class=''>${menu['link_name']}</a></li>
+                    `;
+
+   
 
                 })
                 $("#user_menu").append(menuElement);
                 
+                let href = window.location.href.split('/'); 
+                let url = href[href.length-1];
+                let currentPage = document.querySelector(`[current_link='${url}']`);
+                currentPage.classList='active';
+                currentPage.parentElement.classList.toggle("show-menu-now");
             }else{
                 displayMessage('error', response);
             }

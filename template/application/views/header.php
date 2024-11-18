@@ -26,6 +26,12 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="../../assets/css/style.css">
 
+<style>
+.show-menu-now{
+    display:block !important;
+}
+</style>
+
 </head>
 
 <body>
